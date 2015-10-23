@@ -2,6 +2,8 @@ target
 .settings
 eclipse-launch-profiles
 nbactions.xml
+.projects
+.classpath
 
 *.class
 
