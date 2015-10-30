@@ -23,6 +23,7 @@ import com.googlecode.objectify.ObjectifyService;
 import com.nova.geracao.portfolio.entities.BlogPost;
 import com.nova.geracao.portfolio.entities.BlogPostAuthor;
 import com.nova.geracao.portfolio.entities.BlogTag;
+import com.nova.geracao.portfolio.entities.User;
 
 /**
  * OfyHelper, a ServletContextListener, is setup in web.xml to run before a JSP is run.  This is
@@ -30,9 +31,10 @@ import com.nova.geracao.portfolio.entities.BlogTag;
  **/
 public class OfyHelper implements ServletContextListener {
   public static void register() {
-    ObjectifyService.register(BlogPost.class);
-    ObjectifyService.register(BlogPostAuthor.class);
-    ObjectifyService.register(BlogTag.class);
+	    ObjectifyService.register(BlogPost.class);
+	    ObjectifyService.register(BlogPostAuthor.class);
+	    ObjectifyService.register(BlogTag.class);
+	    ObjectifyService.register(User.class);
   }
 
   public void contextInitialized(ServletContextEvent event) {

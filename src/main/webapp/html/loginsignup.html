@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+	<script src="js/jquery-1.11.3.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+	<style type="text/css">
+		.form-group.required .control-label:after  {
+		  content:" *";
+		  /* color:red; */
+		}
+		.help-block{
+			display: none;
+		}
+		#signup-error{
+			display: none;
+		}
+		#signup-confirm{
+			display: none;
+		}
+	</style>
+</head>
+<body>
+	<div class="container">
+		<div class="row">
+			<div class="col col-md-1"></div>
+			<div class="col col-md-5" id="signup">
+				<div role="form">
+					<div class="alert alert-danger" role="alert" id="signup-error">
+					</div>
+					<div class="form-group required">
+						<label for="user-name" class="control-label">Nome</label>
+							<input type="text" id="user-name-input" name="user-name" placeholder="Nome"  class="form-control">
+							<span class="help-block"></span>
+					</div>
+					<div class="form-group required">
+						<label for="user-email" class="control-label">Email</label>
+							<input type="text" id="user-email-input" name="user-email" placeholder="Email" class="form-control">
+							<span class="help-block"></span>
+					</div>
+					<div class="form-group required">
+						<label for="user-email-confirm" class="control-label">Confirmar Email</label>
+							<input type="text"  id="user-email-input-confirm" name="user-email-confirm" placeholder="Email" class="form-control">
+							<span class="help-block"></span>
+					</div>
+					<!-- <div class="form-group required">
+						<label for="user-password" class="control-label">Senha</label>
+							<input type="password"  id="user-pass-input" name="user-password" placeholder="Senha" class="form-control">
+							<span class="help-block"></span>
+					</div>
+					<div class="form-group required">
+						<label for="user-password-confirm" class="control-label">Confirmar Senha</label>
+							<input type="password"  id="user-pass-input-confirm" name="user-password-confirm" placeholder="Senha" class="form-control">
+							<span class="help-block"></span>
+					</div> -->
+					<div class="form-group">
+							<button id="signup-confirm-btn" name="submit" title="Enviar" role="button" class="btn btn-success">Enviar</button>
+					</div>
+				</div>
+				<div id="signup-confirm">
+					<a href="">Reenviar email de confirmação</a>
+				</div>
+			</div>
+			
+			<script type="text/javascript">
+				var msg_required = 'Este campo não pode ficar em branco';
+				var msg_confirm = 'O valor deste campo não está igual ao do campo anterior';
+				
+				$(function(){
+					var inputs = $('.form-control');
+					for(var i = 0; i < inputs.length; i++){
+						$(inputs[i]).keypress(function(){
+							removeMsgOfField(this);
+							$('#signup-error').hide();
+						});
+					}
+				});
+
+				$('#signup-confirm-btn').click(function(){
+					var error = false;
+					//validate against required field
+					var inputs = $('.form-control');
+					for(var i = 0; i < inputs.length; i++){
+						if(!error && $(inputs[i]).val() == ''){
+							addMsgToField(inputs[i], msg_required);
+							error = true;
+						}
+					}
+					//validate confirm field
+					if($('#user-pass-input').val() != $('#user-pass-input-confirm').val()){
+						addMsgToField($('#user-pass-input-confirm'), msg_confirm);
+					}
+					
+					if(!error){
+						$.ajax({
+							type: 'POST',
+							url: 'registrar',
+							data: {
+								'user-name': $('#user-name-input').val(),
+								'user-email': $('#user-email-input').val()
+							}
+						}).done(function(result){
+							//var result = JSON.parse(data);
+							var type = result.type;
+							var message = result.message;
+							if(type == 'SUCCESS'){
+								var success = $('#signup-confirm');
+								success.text(message);
+								success.show();
+							} else if(type == 'ERROR'){
+								var error = $('#signup-error');
+								error.text(message);
+								error.show();
+							}
+						});
+					}
+				});
+				
+				addMsgToField = function(field, msg){
+					var parent = $(field).parents('.form-group')[0];
+					$(parent).addClass('has-error');
+
+					var span = $(parent).children('span')[0];
+					$(span).text(msg);
+					$(span).show();
+				}
+				
+				removeMsgOfField = function(field){
+					var parent = $(field).parents('.form-group')[0];
+					$(parent).removeClass('has-error');
+					
+					var span = $(parent).children('span')[0];
+					$(span).hide();
+				}
+			</script>
+		</div>
+	</div>
+</body>
+</html>

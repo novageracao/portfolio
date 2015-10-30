@@ -1,0 +1,11 @@
+<html>
+<head>
+	<title>Cofirm Email</title>
+</head>
+<body>
+	<div>Nova Geracao</div>
+	<div>${username}, Bem vindo(a) ao Nova Geração</div>
+	<div>Para ativar sua conta, clique no link abaixo, ou copie e cole no seu navegador.</div>
+	<div>${confirmLink}</div>
+</body>
+</html>
