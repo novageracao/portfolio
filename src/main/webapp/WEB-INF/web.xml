@@ -49,6 +49,15 @@
         <url-pattern>/registrar</url-pattern>
     </servlet-mapping>
     
+    <servlet>
+        <servlet-name>fundraising</servlet-name>
+        <servlet-class>com.nova.geracao.portfolio.FundraisingServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>fundraising</servlet-name>
+        <url-pattern>/produtos-e-eventos</url-pattern>
+    </servlet-mapping>
+    
     <welcome-file-list>
         <welcome-file>index.html</welcome-file>
     </welcome-file-list>

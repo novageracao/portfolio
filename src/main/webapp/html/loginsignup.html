@@ -3,18 +3,55 @@
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+	<link rel="stylesheet" href="stylesheets/bootstrap.min.css">
+	<link href='https://fonts.googleapis.com/css?family=Audiowide' rel='stylesheet' type='text/css'>
 	<script src="js/jquery-1.11.3.min.js"></script>
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
 	<style type="text/css">
+		.nova-geracao{
+			font-family: "Audiowide",cursive;
+			letter-spacing: -1px;
+			word-spacing: -4px;
+			color: #ffffff;
+		}
+		.nova-geracao a{
+			color: #ffffff;
+		}
+		.nova-geracao a:hover{
+			text-decoration: none;
+		}
+		
+		.headline{
+			text-align: center;
+			padding-top: 30px;
+			padding-bottom: 30px;
+		}
+		.call{
+			font-size: 55px;
+		}
 		.form-group.required .control-label:after  {
 		  content:" *";
-		  /* color:red; */
+		}
+		body{
+			background-image: url(img/thumbnails/the_bg_tn.png);
+			background-repeat: no-repeat;
+			background-position: bottom;
+			background-size: cover;
+			-webkit-background-size: cover;
+			-moz-background-size: cover;
+			-o-background-size: cover;
+			background-position: center;
+		}
+		.row-form{
+			background-color: rgba(255, 255, 255, 0.5);
+			border-radius: 5px;
+			padding-bottom: 30px;
+			padding-top: 30px;
 		}
 		.help-block{
 			display: none;
 		}
-		#signup-error{
+		#signup-error, #signin-error{
 			display: none;
 		}
 		#signup-confirm{
@@ -24,9 +61,13 @@
 </head>
 <body>
 	<div class="container">
-		<div class="row">
-			<div class="col col-md-1"></div>
+		<div class="row headline">
+			<h1 class="nova-geracao call"><a href="home">nova geracao</a></h1>
+		</div>
+		<div class="row row-form">
+			
 			<div class="col col-md-5" id="signup">
+				<h3>Registrar-se</h3>
 				<div role="form">
 					<div class="alert alert-danger" role="alert" id="signup-error">
 					</div>
@@ -63,7 +104,31 @@
 					<a href="">Reenviar email de confirmação</a>
 				</div>
 			</div>
+			<div class="col col-md-1"></div>
 			
+			<div class="col col-md-5" id="signup">
+				<h3>Entrar</h3>
+				<div role="form">
+					<div class="alert alert-danger" role="alert" id="signin-error">
+					</div>
+					<div class="form-group required">
+						<label for="user-email" class="control-label">Email</label>
+							<input type="text" id="user-email-signin" name="user-email" placeholder="Email" class="form-control">
+							<span class="help-block"></span>
+					</div>
+					<div class="form-group required">
+						<label for="user-password" class="control-label">Senha</label>
+							<input type="password"  id="user-pass-input" name="user-password" placeholder="Senha" class="form-control">
+							<span class="help-block"></span>
+					</div>
+					<div class="form-group">
+							<button id="signin-confirm-btn" name="submit" title="Enviar" role="button" class="btn btn-success">Enviar</button>
+					</div>
+				</div>
+				<div id="signup-confirm">
+					<a href="">Reenviar email de confirmação</a>
+				</div>
+			</div>
 			<script type="text/javascript">
 				var msg_required = 'Este campo não pode ficar em branco';
 				var msg_confirm = 'O valor deste campo não está igual ao do campo anterior';
