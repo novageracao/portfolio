@@ -28,7 +28,7 @@
     </servlet>
     <servlet-mapping>
         <servlet-name>blogContribute</servlet-name>
-        <url-pattern>/blog/contribute</url-pattern>
+        <url-pattern>/contribuir</url-pattern>
     </servlet-mapping>
     
     <servlet>

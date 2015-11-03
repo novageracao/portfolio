@@ -31,7 +31,7 @@
 		.row-header-inner{
 			min-height: 400px;
 		}
-		.row-header-inner>.legend{
+		.legend{
 			color: #ffffff;
 			margin-left: 10%;
 			margin-right: 10%;
@@ -51,16 +51,39 @@
 			text-align: center;
 			font-size: 25px;
 		}
-		.nova-geracao{
+		.row-header .nova-geracao{
 			font-family: "Audiowide",cursive;
 			letter-spacing: -1px;
 			word-spacing: -4px;
-			color: #a00000;
+			color: #ffffff;
 		}
 		.logo-head{
 			font-size: 105px;
 			color: #ffffff;
 			margin-top: 100px;
+		}
+		/* FOOTER */
+		.row-footer{
+			background-color: #e9e9e9;
+			min-height: 150px;
+		}
+		.row-footer li {
+			list-style-type: none;
+		}
+		.row-footer .nova-geracao {
+		    text-align: right;
+		    margin-right: 50px;
+		}
+		.row-footer .nova-geracao a{
+			font-family: "Audiowide", cursive;
+			font-size: 30px;
+			letter-spacing: -1px;
+			word-spacing: -4px;
+			color: #a00000;
+			margin-top: -10px;
+		}
+		.row-footer .nova-geracao a:hover{
+			text-decoration: none;
 		}
 	</style>
 </head>
@@ -69,7 +92,8 @@
 		<div class="row row-fluid row-header">
 			<div class="row-header-inner">
 				<h1 class="logo-head nova-geracao">nova geracao</h1>
-				<h2 class="legend">A Nova Geração existe para criar oportunidades e prover as ferramentas necessárias para que
+				<h2 class="legend">A Empresa Nova Geração é uma <a href="http://www.novacomunidade.org/empresas-sociais-yunus.html">Empresa Social</a> que utiliza Tecnologia da Informação aliada a conhecimento transdisciplinar para criar soluções para
+    			as Cidades, no meio urbano ou rural, nos setores de Educação, Economia, Saúde. A Nova Geração existe para criar oportunidades e prover as ferramentas necessárias para que
 					todos os líderes nas comunidades exercitem suas capacidades em plenitude.</h2>
 			</div>
 		    <div class="blog-masthead">
@@ -94,18 +118,35 @@
 		</div>
 	</div>
 
+    <!-- <div class="container-fluid">
+    	<div class="row row-fluid row-outter">
+    		
+    	</div>
+    </div> -->
     <div class="container-fluid">
     	<div class="row row-fluid row-outter">
-    		<h1>A Empresa Nova Geração utiliza Tecnologia da Informação aliada a conhecimento transdisciplinar para criar soluções para
-    			as Cidades, no meio urbano ou rural, nos setores de Educação, Economia, Saúde.</h1>
+    		<h1>A estória que contamos sobre Pobreza não é verdade</h1>
+    		<p>por <a href="http://www.familystoryproject.org/">Mia Birdsong</a></p>
+    		<p>em <a href="https://www.ted.com/talks/mia_birdsong_the_story_we_tell_about_poverty_isn_t_true">TED Talks</a></p>
+    		<p>Comunidades marginalizadas são cheias de pessoas inteligentes e cheias de talento, trabalhando e inovando, tanto quanto
+nossos mais recompensados Chefes Executivos (de grandes empresas). Essas comunidades estão cheias de pessoas desafiando sua resiliência de levantar todos os dias
+para preparar os filhos para ir a escola e ir para seus trabalhos que não pagam suficiente para cobrir despesas essenciais; cheias de pessoas que recebem educação que 
+as põe em débito. Elas estão cheias de pessoas aplicando sua inteligência para esticar um salário mínimo, ou balancear o trabalho 
+e um "bico", para fazer renda suficiente para as necessidades básicas. Elas estão cheias de pessoas trabalhando para si e para
+outros; seja indo pegar medicamentos para o vizinho idoso, ou emprestando dinheiro a um parente para pagar alguma conta, ou 
+simplesmente olhando com cuidado as criançaas na vizinhanca.</p>
     	</div>
     </div>
     
-    <footer class="blog-footer">
-      <p>Blog template built for <a href="http://getbootstrap.com">Bootstrap</a> by <a href="https://twitter.com/mdo">@mdo</a>.</p>
-      <p>
-        <a href="#">Back to top</a>
-      </p>
-    </footer>
+    <div class="container-fluid">
+		<div class="row row-fluid row-footer">
+			<div class="row row-fluid">
+				<div class="nova-geracao">
+					powered by:
+					<br><span><a href="#">nova geracao</a></span>
+				</div>
+			</div>
+		</div>
+	</div>
 </body>
 </html>

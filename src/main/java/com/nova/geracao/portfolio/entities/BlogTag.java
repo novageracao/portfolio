@@ -3,6 +3,7 @@ package com.nova.geracao.portfolio.entities;
 import com.google.gson.annotations.SerializedName;
 import com.googlecode.objectify.annotation.Entity;
 import com.googlecode.objectify.annotation.Id;
+import com.googlecode.objectify.annotation.Index;
 
 @Entity
 public class BlogTag implements BaseDataClass{
@@ -11,6 +12,7 @@ public class BlogTag implements BaseDataClass{
 	@SerializedName("tag_id")
 	private Long id;
 	@SerializedName("tag_name")
+	@Index
 	private String name;
 
 	public Long getId() {

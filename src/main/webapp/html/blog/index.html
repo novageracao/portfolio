@@ -51,7 +51,7 @@
 			margin-top: 30px;
 			margin-bottom: 30px;
 		}
-		.nova-geracao{
+		.row-header .nova-geracao{
 			float: left;
 			margin-left: 10px;
 			
@@ -60,6 +60,29 @@
 			letter-spacing: -1px;
 			word-spacing: -4px;
 			color: #ffffff;
+		}
+		/* FOOTER */
+		.row-footer{
+			background-color: #e9e9e9;
+			min-height: 150px;
+		}
+		.row-footer li {
+			list-style-type: none;
+		}
+		.row-footer .nova-geracao {
+		    text-align: right;
+		    margin-right: 50px;
+		}
+		.row-footer .nova-geracao a{
+			font-family: "Audiowide", cursive;
+			font-size: 30px;
+			letter-spacing: -1px;
+			word-spacing: -4px;
+			color: #a00000;
+			margin-top: -10px;
+		}
+		.row-footer .nova-geracao a:hover{
+			text-decoration: none;
 		}
 	</style>
 </head>
@@ -93,7 +116,82 @@
 	</div>
 
 	<div id="blog">
-		<script type="text/javascript">
+		<div class="container">
+
+     <!--  <div class="blog-header">
+        <h1 class="blog-title">The Bootstrap Blog</h1>
+        <p class="lead blog-description">The official example template of creating a blog with Bootstrap.</p>
+      </div> -->
+
+      <div class="row blog-body">
+
+        <div class="col-sm-8 blog-main">
+			<div class="blog-post">
+            		<h2 class="blog-post-title">Liderança de Todo Dia</h2>
+            		<p class="blog-post-meta">22 de Outubro, 2015 por <a href="http://www.drewdudley.com">Drew Dudley</a></p>
+					<p class="blog-post-meta">Origem <a href="https://www.ted.com/talks/drew_dudley_everyday_leadership">link</a></p>
+
+					<div class="post-body">
+	            		<p class="post-paragraph">Eu percebi que nós tornamos Liderança em algo maior que nós, em algo além de nós. Nós temos 
+	            		tomado este título de Líder e tratado ele como algo que algum dia iremos merecer, mas nos dar esse "tíitulo" agora implica 
+	            		um nível de arrogância ou petulância, com os quais não nos sentimos confortáveis. Eu me preocupo às vezes que gastamos tanto 
+	            		tempo comemorando coisas incríveis, que quase ninguém consegue  fazer, que convencemos a nós mesmos que essas são as únicas 
+	            		coisas que valem a pena  serem celebradas. E começamos a desvalorizar as coisas que fazemos todo o dia. Nós começamos a ter 
+	            		momentos onde verdadeiramente somos líderes e não deixamos nós mesmos termos créditos por isso e não nos permitimos sentir 
+	            		bem com o que fizemos.</p>
+	            		<img class="img-responsive" src="img/athlete_helping.png">
+	            		<p class="post-paragraph">Enquanto fizermos Liderança algo maior que nós, enquanto tornarmos Liderança algo relacionado a 
+	            		mudar o mundo, nós nos damos a desculpa de nao esperá-la todos os dias de nós mesmos e dos outros. Mirianne Williamson disse 
+	            		que "nosso maior medo não é que sejamos inadequados, nosso maior medo é que sejamos poderosos além do que podemos mensurar. O
+	            		 que nos assusta, é nossa luz e não nossa escuridao. Nós temos de superar nosso medo de quão extraordinariamente poderoso nós 
+	            		 podemos ser na vida uns dos outros. Nós precisamos superá-lo, então poderemos nos mover além dele. E nossos irmãos, nossas
+	            		  irmãs e nossos filhos poderão ver e começar a valorizar o impacto que podemos ter nas vidas de cada um de nós [...]</p>
+	      			</div>
+		</div>
+		 <nav>
+		      <ul class="pager">
+			       <li><a href="blog?order=prev&pid=<%= blog_post_id %>">Anterior</a></li>
+		           <li><a href="blog?order=next&pid=<%= blog_post_id %>">Próximo</a></li>
+		      </ul>
+		 </nav>
+		
+		 </div><!-- /.blog-main -->
+		
+		     <div class="col-sm-3 col-sm-offset-1 blog-sidebar">
+		          <div class="sidebar-module sidebar-module-inset">
+		            <h4>Sobre o Autor</h4>
+		            <p>Drew Dudley acredita que Liderança não é uma característica reservada aos extraordinários. Ele <a href="http://nuanceleadership.ca">trabalha</a> para ajudar pessoas a descobrirem os líderes dentro delas mesmas.</p>
+		          </div>
+		          <div class="sidebar-module">
+		            <h4>Arquivo</h4>
+		            <ol class="list-unstyled">
+		              <li><a href="blog?month=october">Outubro 2015</a></li>
+		            </ol>
+		          </div>
+		          <div class="sidebar-module">
+		          	<h4>Palavras-chave</h4>
+		          	<a href="blog?tag=leadership"><span class="badge">liderança</span></a>
+		          </div>
+		          <!-- <div class="sidebar-module">
+		            <h4>Elsewhere</h4>
+		            <ol class="list-unstyled">
+		              <li><a href="https://github.com/novageracao">GitHub</a></li>
+		              <li><a href="https://www.facebook.com/Projeto-Nova-Escola-1481866395448203/">Facebook</a></li>
+		            </ol>
+		          </div> -->
+		        </div>
+		
+		      </div>
+		
+		    </div>
+		
+		<!-- <% if(typeof blog_post_fb != 'undefined'){ %> -->
+		<div class="fb-like" data-href="https://www.facebook.com/1481866395448203/photos/a.1481917455443097.1073741828.1481866395448203/1486771491624360" 
+				data-width="600" data-layout="standard" data-action="like" data-show-faces="true" data-share="true"></div>
+				<div class="fb-comments" data-href="https://www.facebook.com/1481866395448203/photos/a.1481917455443097.1073741828.1481866395448203/1486771491624360" 
+					data-width="600" data-numposts="8"></div>
+		<!-- <%}%> -->
+		<!-- <script type="text/javascript">
 			$(function(){
 				$.ajax({url:'blog?order=last'}).done(function(result){
 					console.log(JSON.parse(result));
@@ -101,15 +199,19 @@
 					$('#blog').html(html);
 				});
 			});
-		</script>
+		</script> -->
 	</div>
 
-   <footer class="blog-footer">
-      <p>Blog template built for <a href="http://getbootstrap.com">Bootstrap</a> by <a href="https://twitter.com/mdo">@mdo</a>.</p>
-      <p>
-        <a href="#">Back to top</a>
-      </p>
-    </footer>
+   <div class="container-fluid">
+		<div class="row row-fluid row-outter row-footer">
+			<div class="row row-fluid">
+				<div class="nova-geracao">
+					powered by:
+					<br><span><a href="#">nova geracao</a></span>
+				</div>
+			</div>
+		</div>
+	</div>
 
 
     <!-- Bootstrap core JavaScript

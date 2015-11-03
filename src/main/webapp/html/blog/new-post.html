@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Blog Contribuição</title>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css">
+	<link rel="stylesheet" href="stylesheets/blog.css">
+	<link href='https://fonts.googleapis.com/css?family=Audiowide' rel='stylesheet' type='text/css'>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+	<script type="text/javascript" src="js/ejs_production.js"></script>
+	<style type="text/css">
+		.row-header{
+			text-align: center;
+			background-color: #428bca;
+			background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.5)), url(img/thumbnails/the_bg_tn.png);
+			background-repeat: no-repeat;
+			
+			background-size: cover;
+			-webkit-background-size: cover;
+			-moz-background-size: cover;
+			-o-background-size: cover;
+			background-position: center;
+			
+		}
+		.row-header-inner{
+			min-height: 400px;
+		}
+		/* .row-header.img{
+			filter: blur(15px);
+			-webkit-filter: blur(15px);
+			-moz-filter: blur(15px);
+			-o-filter: blur(15px);
+			-ms-filter: blur(15px);
+			
+		} */
+		.blog-nav{
+			text-align: center;
+			font-size: 25px;
+		}
+		.blog-body{
+			margin-top: 80px;
+		}
+		.post-body{
+			text-align: justify;
+			text-indent: 50px;
+		}
+		.post-body img{
+			margin-top: 30px;
+			margin-bottom: 30px;
+		}
+		.nova-geracao{
+			float: left;
+			margin-left: 10px;
+			
+			font-family: "Audiowide",cursive;
+			font-size: 35px;
+			letter-spacing: -1px;
+			word-spacing: -4px;
+			color: #ffffff;
+		}
+		.row-footer{
+			background-color: #e9e9e9;
+			min-height: 150px;
+			margin-bottom: -10px;
+		}
+		.row-footer li {
+			list-style-type: none;
+		}
+		.nova-geracao a{
+			font-family: "Audiowide", cursive;
+			font-size: 30px;
+			letter-spacing: -1px;
+			word-spacing: -4px;
+			color: #a00000;
+			margin-top: -10px;
+		}
+		.nova-geracao a:hover{
+			text-decoration: none;
+		}
+	</style>
+</head>
+<body>
+	<div id="header" class="container-fluid">
+	</div>
+	<div id="body" class="container-fluid">
+		<form class="row" role="form">
+			<div class="col col-md-2"></div>
+			<div class="col col-md-8">
+				<div class="form-group">
+					<label for="blog-post-title">Título</label>
+					<input type="text" id="blog-post-title" name="blog_post_title" class="form-control">
+				</div>
+				<div class="form-group">
+					<label for="blog-post-author-name">Nome do Autor</label>
+					<input type="text" id="blog-post-author-name" name="blog_post_author.author_name" class="form-control">
+				</div>
+				<div class="form-group">
+					<label for="blog-post-author-bio">Bio Autor</label>
+					<input type="text" id="blog-post-author-bio" name="blog_post_author.author_bio" class="form-control">
+				</div>
+				<div class="form-group">
+					<label for="blog-post-author-link">Link Autor</label>
+					<input type="text" id="blog-post-author-link" name="blog_post_author.author_link" class="form-control">
+				</div>
+				<div class="form-group">
+					<label for="blog-post-source">Link Post</label>
+					<input type="text" id="blog-post-source" name="blog_post_source" class="form-control">
+				</div>
+				<div class="form-group">
+					<label for="blog-post-fb">Link do Post no Facebook</label>
+					<input type="text" id="blog-post-fb" name="blog_post_fb" class="form-control">
+				</div>
+				<div class="form-group">
+					<label for="blog-post-body">Texto</label>
+					<textarea rows="5" cols="20" id="blog-post-body" name="blog_post_body" class="form-control"></textarea>
+				</div>
+				<div class="form-group">
+					<select name="tags" size="5" class="form-control" multiple>
+						<option value="1" name="">Liderança</option>
+						<option value="2">Economia</option>
+						<option value="3">Bem Social</option>
+						<option value="4">Empoderamento</option>
+						<option value="5">Empreendedorismo</option>
+					</select>
+				</div>
+				<a role="button" class="btn btn-success" id="btn-submit">Enviar</a>
+			</div>
+		</form>
+			<script type="text/javascript">
+				serializeObject = function(obj){
+				    var o = {};
+				    var a = obj.serializeArray();
+				    $.each(a, function() {
+				        if (o[this.name] !== undefined) {
+				            if (!o[this.name].push) {
+				                o[this.name] = [o[this.name]];
+				            }
+				            o[this.name].push(this.value || '');
+				        } else {
+				            o[this.name] = this.value || '';
+				        }
+				    });
+				    return o;
+				};
+			
+				$('#btn-submit').click(function(){
+					var data = serializeObject($('form'));
+					console.log(data);
+					/* $.ajax({
+						type: 'POST',
+						url: 'contribuir',
+						data: data
+					}); */
+				});
+			</script>
+	</div>
+	<div id="footer" class="container-fluid">
+	</div>
+	<script type="text/javascript">
+		$(function(){
+			var header = new EJS({url:'html/templates/header.ejs'}).render();
+			var footer = new EJS({url:'html/templates/footer.ejs'}).render();
+			$('#header').append(header);
+			$('#footer').append(footer);
+		});
+	</script>
+</body>
+</html>

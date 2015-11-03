@@ -37,7 +37,10 @@ import com.google.appengine.api.datastore.Query;
 import com.google.appengine.api.datastore.Query.FilterOperator;
 import com.google.appengine.api.datastore.Query.FilterPredicate;
 import com.google.gson.Gson;
+import com.googlecode.objectify.Key;
 import com.googlecode.objectify.ObjectifyService;
+import com.nova.geracao.portfolio.core.MessageOutcome;
+import com.nova.geracao.portfolio.core.MessageType;
 import com.nova.geracao.portfolio.entities.BaseDataClass;
 import com.nova.geracao.portfolio.entities.BlogPost;
 
@@ -85,6 +88,7 @@ public class BlogServlet extends HttpServlet {
 			dispatcher.forward(req, resp);
 		}
 	}
+	
 	
 	private Object getInstanceFromPropertiesMap(Entity entity, Class<?> klass) {
 		Object result = null;
